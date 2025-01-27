@@ -1,0 +1,33 @@
+.sidebar {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed; 
+    top: 91px;
+    left: 0; 
+    width: 117px;
+    height: 100vh;
+
+    &_text {
+        color: white;
+        display: inline-block; 
+        transform: rotate(270deg); 
+        white-space: nowrap; 
+        font-size: 12px;
+    }
+}
+
+.material-symbols-outlined {
+    color: #ff0101;
+    background-color: white;
+    border-radius: 6px;
+    height: 64px;
+    width: 64px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
