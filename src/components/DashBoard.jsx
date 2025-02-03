@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+/*import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { getUserData} from '../api/api.js';
+import { getUserData} from '../api/api.js';*/
 import DataDisplay from "./DataDisplay.jsx";
+import PerformanceData from './PerformanceData.jsx'
 import proteinIcon from '../assets/protein-icon.svg';
 import fatIcon from '../assets/fat-icon.svg';
 import carbsIcon from '../assets/carbs-icon.svg';
@@ -9,8 +10,8 @@ import caloriesIcon from '../assets/calories-icon.svg';
 
 
 
-function DashBoard() {
-    const { id } = useParams();
+function Dashboard() {
+ /*   const { id } = useParams();
     const [userName, setUserName] = useState('');
   
     useEffect(() => {
@@ -20,13 +21,15 @@ function DashBoard() {
         };
         
         fetchUserData(); // Call the function when component mounts
-    }, [id]); // Re-run effect when id changes
+    }, [id]); // Re-run effect when id changes*/
 
   
     return (
         <div>
-            <h2>Bonjour {userName}</h2>
+            <h2>Bonjour</h2>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+
+            <PerformanceData />
 
             <DataDisplay 
                 requestedData="calorieCount" 
@@ -56,5 +59,5 @@ function DashBoard() {
   );
 }
 
-export default DashBoard;
+export default Dashboard;
 
