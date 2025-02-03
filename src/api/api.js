@@ -1,33 +1,41 @@
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../api/data.js";
+
 const BASE_URL = "http://localhost:3000";
 const userDataFake = import.meta.env.VITE_TEST === 'true';
 
-
-// General function for fetching data from the API
 const fetchData = async (endpoint) => {
-  const response = await fetch(`${BASE_URL}${endpoint}`);
- 
-  return await response.json();
-};
-
-// Getting user data
-export const getUserData = (userId) => {
-  if (userDataFake) {
-    return {"data":{"id":12,"userInfos":{"firstName":"Nico","lastName":"Dovineau","age":31},"todayScore":0.12,"keyData":{"calorieCount":1930,"proteinCount":155,"carbohydrateCount":290,"lipidCount":50}}}
+  try {
+    const response = await fetch(`${BASE_URL}${endpoint}`);
+    return await response.json();
+  } catch (error) {
+    console.error(`API Error: Failed to fetch data from ${endpoint}`, error);
+    return { error: "Data not found", data: null };
   }
-  return fetchData(`/user/${userId}`);
 };
 
-// Getting user activity
-export const getUserActivity = (userId) => {
-  return fetchData(`/user/${userId}/activity`);
+const getData = async (userId, endpoint, mockData) => {
+  if (userDataFake) {
+    const user = mockData.find(user => user.userId === Number(userId) || user.id === Number(userId));
+
+    if (user) {
+      return { data: user };
+    } else {
+      console.error(`Error: Data not found for user ID ${userId} in mock data.`);
+      return { error: "Data not found", data: null };
+    }
+  }
+
+  const response = await fetchData(endpoint);
+
+  if (!response || !response.data) {
+    console.error(`Error: Data not found for user ID ${userId}`);
+    return { error: "Data not found", data: null };
+  }
+
+  return response;
 };
 
-// Getting average activity
-export const getUserAverageSessions = (userId) => {
-  return fetchData(`/user/${userId}/average-sessions`);
-};
-
-// Getting performance
-export const getUserPerformance = (userId) => {
-  return fetchData(`/user/${userId}/performance`);
-};
+export const getUserData = (userId) => getData(userId, `/user/${userId}`, USER_MAIN_DATA);
+export const getUserActivity = (userId) => getData(userId, `/user/${userId}/activity`, USER_ACTIVITY);
+export const getUserAverageSessions = (userId) => getData(userId, `/user/${userId}/average-sessions`, USER_AVERAGE_SESSIONS);
+export const getUserPerformance = (userId) => getData(userId, `/user/${userId}/performance`, USER_PERFORMANCE);
