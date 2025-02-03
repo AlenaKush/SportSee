@@ -1,5 +1,6 @@
 @import 'header';
 @import 'sidebar';
+@import 'dataDisplay';
 
 :root {
   font-family: Roboto, sans-serif;
@@ -18,8 +19,12 @@
 
 body {
   margin: 0;
+
 }
 
+main {
+  margin-left: 117px;
+}
 /*a {
   font-weight: 500;
   color: #646cff;
