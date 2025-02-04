@@ -5,14 +5,18 @@ import carbsIcon from '../assets/carbs-icon.svg';
 import caloriesIcon from '../assets/calories-icon.svg';
 import UserStatDisplay from "./UserStatDisplay.jsx";
 import FetchUserData from './FetchUserData.jsx';
+import RadialBarChartDisplay from './RadialBarChartDisplay.jsx';
 
 
 
 function Dashboard() {
+    const score = FetchUserData({ field: "todayScore" }) || FetchUserData({ field: "score" });
     return (
         <div>
             <h2>Bonjour <FetchUserData field="userInfos.firstName" /></h2>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            <RadialBarChartDisplay score={Number(score)} />
+
 
             <FretchPerformanceData />
 

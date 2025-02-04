@@ -1,13 +1,10 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from "recharts";
 import PropTypes from "prop-types";
 
-/**
- * Component to display user's score as a radial bar chart
- */
-function RadialBarChartComponent({ score }) {
-  // Data for the chart
+
+function RadialBarChartDisplay({ score }) {
   const data = [
-    { name: "Score", value: score * 100, fill: "#FF0000" } // Convert to percentage
+    { name: "Score", value: score * 100, fill: "#FF0101" } 
   ];
 
   return (
@@ -37,8 +34,8 @@ function RadialBarChartComponent({ score }) {
 }
 
 // PropTypes validation
-RadialBarChartComponent.propTypes = {
+RadialBarChartDisplay.propTypes = {
   score: PropTypes.number.isRequired,
 };
 
-export default RadialBarChartComponent;
+export default RadialBarChartDisplay;
