@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 //Component for displaying a radar chart 
 
-function RadarChartComponent({ data }) {
+function RadarChartDisplay({ data }) {
   return (
     <div className="radar-chart-container">
       <ResponsiveContainer width='100%' height={200}>
@@ -18,8 +18,8 @@ function RadarChartComponent({ data }) {
   );
 }
 
-RadarChartComponent.propTypes = {
+RadarChartDisplay.propTypes = {
   data: PropTypes.array.isRequired
 };
 
-export default RadarChartComponent;
+export default RadarChartDisplay;

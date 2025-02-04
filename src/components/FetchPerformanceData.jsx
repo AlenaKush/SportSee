@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserPerformance } from "../api/api";
-import RadarChartComponent from "./RadarChartComponent";
+import RadarChartDisplay from "./RadarChartDisplay";
 
-/**
- * Component for fetching and processing user performance data.
- * It translates activity types into French and passes data to RadarChartComponent.
- */
-function PerformanceData() {
+function FretchPerformanceData() {
   const { id } = useParams();
   const [performanceData, setPerformanceData] = useState([]);
 
@@ -41,7 +37,7 @@ function PerformanceData() {
     fetchPerformance();
   }, [id]);
 
-  return <RadarChartComponent data={performanceData} />;
+  return <RadarChartDisplay data={performanceData} />;
 }
 
-export default PerformanceData;
+export default FretchPerformanceData;

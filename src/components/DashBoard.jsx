@@ -1,4 +1,4 @@
-import PerformanceData from './PerformanceData.jsx'
+import FretchPerformanceData from './FetchPerformanceData.jsx'
 import proteinIcon from '../assets/protein-icon.svg';
 import fatIcon from '../assets/fat-icon.svg';
 import carbsIcon from '../assets/carbs-icon.svg';
@@ -14,7 +14,7 @@ function Dashboard() {
             <h2>Bonjour <FetchUserData field="userInfos.firstName" /></h2>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
-            <PerformanceData />
+            <FretchPerformanceData />
 
             <UserStatDisplay 
                 field="keyData.calorieCount" 
