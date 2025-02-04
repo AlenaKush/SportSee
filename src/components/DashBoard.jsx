@@ -1,59 +1,44 @@
-/*import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
-import { getUserData} from '../api/api.js';*/
-import DataDisplay from "./DataDisplay.jsx";
 import PerformanceData from './PerformanceData.jsx'
 import proteinIcon from '../assets/protein-icon.svg';
 import fatIcon from '../assets/fat-icon.svg';
 import carbsIcon from '../assets/carbs-icon.svg';
 import caloriesIcon from '../assets/calories-icon.svg';
+import UserStatDisplay from "./UserStatDisplay.jsx";
+import FetchUserData from './FetchUserData.jsx';
 
 
 
 function Dashboard() {
- /*   const { id } = useParams();
-    const [userName, setUserName] = useState('');
-  
-    useEffect(() => {
-        const fetchUserData = async () => {
-          const userData = await getUserData(id); // Fetch user data using id
-          setUserName(userData.data.userInfos.firstName); // Set user's first name in state
-        };
-        
-        fetchUserData(); // Call the function when component mounts
-    }, [id]); // Re-run effect when id changes*/
-
-  
     return (
         <div>
-            <h2>Bonjour</h2>
+            <h2>Bonjour <FetchUserData field="userInfos.firstName" /></h2>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
             <PerformanceData />
 
-            <DataDisplay 
-                requestedData="calorieCount" 
+            <UserStatDisplay 
+                field="keyData.calorieCount" 
                 unit="kcal"     
-                dataName="Calories"
-                url={caloriesIcon}
+                label="Calories"
+                icon={caloriesIcon}
             />
-            <DataDisplay 
-                requestedData="proteinCount" 
+            <UserStatDisplay
+                field="keyData.proteinCount" 
                 unit="g"     
-                dataName="Proteines"
-                url={proteinIcon}
+                label="Proteines"
+                icon={proteinIcon}
             />
-            <DataDisplay 
-                requestedData="carbohydrateCount" 
+            <UserStatDisplay
+                field="keyData.carbohydrateCount" 
                 unit="g"     
-                dataName="Glucides"
-                url={carbsIcon}
+                label="Glucides"
+                icon={carbsIcon}
             />
-            <DataDisplay 
-                requestedData="lipidCount" 
+            <UserStatDisplay
+                field="keyData.lipidCount" 
                 unit="g"     
-                dataName="Lipides"
-                url={fatIcon}
+                label="Lipides"
+                icon={fatIcon}
             />
         </div>
   );
