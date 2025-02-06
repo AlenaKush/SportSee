@@ -3,7 +3,7 @@ import FetchUserData from "./FetchUserData.jsx";
 
 
 
-function UserStatDisplay({field, unit, label, icon}) {
+function DisplayUserStat({field, unit, label, icon}) {
   
     return (
         <div className="stat-container">
@@ -18,9 +18,9 @@ function UserStatDisplay({field, unit, label, icon}) {
     );
 }
 
-export default UserStatDisplay;
+export default DisplayUserStat;
 
-UserStatDisplay.propTypes = {
+DisplayUserStat.propTypes = {
     field: PropTypes.string.isRequired,
     unit: PropTypes.string,                    
     label: PropTypes.string,     

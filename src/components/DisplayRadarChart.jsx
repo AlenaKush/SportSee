@@ -1,9 +1,8 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
-//Component for displaying a radar chart 
 
-function RadarChartDisplay({ data }) {
+function DisplayRadarChart({ data }) {
   return (
     <div className="radar-chart-container">
       <ResponsiveContainer width='100%' height={200}>
@@ -18,8 +17,8 @@ function RadarChartDisplay({ data }) {
   );
 }
 
-RadarChartDisplay.propTypes = {
+DisplayRadarChart.propTypes = {
   data: PropTypes.array.isRequired
 };
 
-export default RadarChartDisplay;
+export default DisplayRadarChart;

@@ -2,7 +2,7 @@ import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from "
 import PropTypes from "prop-types";
 
 
-function RadialBarChartDisplay({ score }) {
+function DisplayRadialBarChart({ score }) {
   const data = [
     { name: "Score", value: score * 100, fill: "#FF0101" } 
   ];
@@ -12,14 +12,10 @@ function RadialBarChartDisplay({ score }) {
       <h3 className="chart-title">Score</h3>
       <ResponsiveContainer width={260} height={260}>
         <RadialBarChart 
-          cx="50%" 
-          cy="50%" 
           innerRadius="70%" 
           outerRadius="90%" 
           barSize={10} 
           data={data} 
-          startAngle={90} 
-          endAngle={90 + (score * 360)}
         >
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
           <RadialBar background dataKey="value" cornerRadius={50} />
@@ -34,8 +30,8 @@ function RadialBarChartDisplay({ score }) {
 }
 
 // PropTypes validation
-RadialBarChartDisplay.propTypes = {
+DisplayRadialBarChart.propTypes = {
   score: PropTypes.number.isRequired,
 };
 
-export default RadialBarChartDisplay;
+export default DisplayRadialBarChart;

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getUserPerformance } from "../api/api";
-import RadarChartDisplay from "./RadarChartDisplay";
 
-function FretchPerformanceData() {
+function FetchPerformanceData() {
   const { id } = useParams();
   const [performanceData, setPerformanceData] = useState([]);
 
@@ -37,7 +36,7 @@ function FretchPerformanceData() {
     fetchPerformance();
   }, [id]);
 
-  return <RadarChartDisplay data={performanceData} />;
+  return performanceData;
 }
 
-export default FretchPerformanceData;
+export default FetchPerformanceData;
