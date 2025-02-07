@@ -12,11 +12,11 @@ import DisplayRadarChart from "./DisplayRadarChart.jsx";
 import DisplayLineChart from "./DisplayLineChart.jsx";
 import DisplayBarChart from "./DisplayBarChart.jsx";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activityData, setActivityData] = useState([]);
   const [sessionData, setSessions] = useState([]);
   const [performanceData, setPerformanceData] = useState([]);
@@ -24,11 +24,20 @@ function Dashboard() {
   const [score, setScore] = useState("");
 
   useEffect(() => {
+    const fetchAllData = async () => {
+      const userData = await FetchUserData(id);
+
+      if (!userData) {
+        navigate("/404");
+        return;
+      }
+    };
+
     const fetchActivity = async () => {
       const response = await FetchActivityData(id);
       setActivityData(response);
     };
-    const fetchSessions  = async () => {
+    const fetchSessions = async () => {
       const response = await FetchAverageSessionsData(id);
       setSessions(response);
     };
@@ -39,33 +48,28 @@ function Dashboard() {
     const fetchName = async () => {
       const response = await FetchUserData(id, "userInfos.firstName");
       setUserName(response);
-    }; 
-    const fetchScore = async () => {
-        const response = await FetchUserData(id, "todayScore");
-        setScore(response);
     };
-  
-      
+    const fetchScore = async () => {
+      const response = await FetchUserData(id, "todayScore");
+      setScore(response);
+    };
+
+    fetchAllData();
     fetchName();
     fetchActivity();
     fetchSessions();
     fetchPerformance();
     fetchScore();
-  }, [id]);
+  }, [id, navigate]);
 
   return (
     <div>
-      <h2>
-        Bonjour {userName}
-      </h2>
+      <h2>Bonjour {userName}</h2>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
       <DisplayBarChart data={activityData} />
-
       <DisplayLineChart data={sessionData} />
-
       <DisplayRadialBarChart score={Number(score)} />
-
       <DisplayRadarChart data={performanceData} />
 
       <DisplayUserStat
