@@ -1,33 +1,35 @@
 .sidebar {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed; 
-    top: 91px;
-    left: 0; 
-    width: 117px;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 117px;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
 
-    &_text {
-        color: white;
-        display: inline-block; 
-        transform: rotate(270deg); 
-        white-space: nowrap; 
-        font-size: 12px;
-    }
+  &_text {
+    position: absolute; /* Фиксируем текст */
+    bottom: 100px; /* Отступ 40px от нижнего края */
+    color: white;
+    transform: rotate(270deg); /* Поворачиваем текст */
+    white-space: nowrap;
+    font-size: 12px;
+  }
 }
 
 .material-symbols-outlined {
-    color: #ff0101;
-    background-color: white;
-    border-radius: 6px;
-    height: 64px;
-    width: 64px;
-    font-size: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
+  color: #ff0101;
+  background-color: white;
+  border-radius: 6px;
+  height: 60px;
+  width: 60px;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
