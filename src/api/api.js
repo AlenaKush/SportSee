@@ -24,16 +24,9 @@ const getData = async (userId, endpoint, mockData) => {
       return { error: "Data not found", data: null };
     }
   }
-
-  const response = await fetchData(endpoint);
-
-  if (!response || !response.data) {
-    console.error(`Error: Data not found for user ID ${userId}`);
-    return { error: "Data not found", data: null };
-  }
-
-  return response;
-};
+  
+  return fetchData(endpoint);
+}; 
 
 export const getUserData = (userId) => getData(userId, `/user/${userId}`, USER_MAIN_DATA);
 export const getUserActivity = (userId) => getData(userId, `/user/${userId}/activity`, USER_ACTIVITY);

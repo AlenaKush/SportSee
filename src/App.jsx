@@ -13,7 +13,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/user/:id" element={<Dashboard />} />
-            <Route path="/user/404" element={<NotFound />} /> 
+            <Route path="*" element={<NotFound />} /> 
           </Routes>
         </main>
         <Sidebar />

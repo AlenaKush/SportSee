@@ -1,17 +1,25 @@
 import PropTypes from "prop-types";
-import FetchUserData from "./FetchUserData.jsx";
+import { useEffect, useState } from "react";
+import FetchUserData from "../utils/FetchUserData.js";
 
 
 
-function DisplayUserStat({field, unit, label, icon}) {
-  
+function DisplayUserStat({id, field, unit, label, icon}) {
+    const [data, setData] = useState("");
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const value = await FetchUserData(id, field);
+            setData(value);
+        };
+        fetchData();
+    }, [id, field]);
+
     return (
         <div className="stat-container">
             <img src={icon} alt={`${label} icon`} className="stat-icon" />
             <div className="stat-text">
-                <p>
-                    <FetchUserData field={field} />{unit}
-                </p>
+                <p>{data}{unit}</p>
                 <p>{label}</p>
             </div>    
         </div>
@@ -21,6 +29,7 @@ function DisplayUserStat({field, unit, label, icon}) {
 export default DisplayUserStat;
 
 DisplayUserStat.propTypes = {
+    id: PropTypes.string.isRequired,
     field: PropTypes.string.isRequired,
     unit: PropTypes.string,                    
     label: PropTypes.string,     

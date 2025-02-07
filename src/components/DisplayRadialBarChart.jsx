@@ -11,12 +11,7 @@ function DisplayRadialBarChart({ score }) {
     <div className="radial-bar-chart-container">
       <h3 className="chart-title">Score</h3>
       <ResponsiveContainer width={260} height={260}>
-        <RadialBarChart 
-          innerRadius="70%" 
-          outerRadius="90%" 
-          barSize={10} 
-          data={data} 
-        >
+        <RadialBarChart innerRadius="70%" outerRadius="90%" barSize={10} data={data} >
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
           <RadialBar background dataKey="value" cornerRadius={50} />
         </RadialBarChart>
