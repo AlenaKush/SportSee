@@ -8,7 +8,7 @@ function DisplayRadialBarChart({ score }) {
   ];
 
   return (
-    <div className="radial-bar-chart-container">
+    <div className="radial-bar-chart">
       <h3 className="chart-title">Score</h3>
       <ResponsiveContainer width={260} height={260}>
         <RadialBarChart innerRadius="70%" outerRadius="90%" barSize={10} data={data} >

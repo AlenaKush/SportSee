@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function DisplayLineChart({ data }) {
   return (
-    <div className="line-chart-container">
+    <div className="line-chart">
       <h3 className="chart-title">Durée moyenne des sessions</h3>
       <ResponsiveContainer width={260} height={200}>
         <LineChart data={data}>

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function DisplayBarChart({ data }) {
   return (
-    <div className="bar-chart-container">
+    <div className="bar-chart">
       <h3 className="chart-title">Activité quotidienne</h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>

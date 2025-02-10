@@ -1,4 +1,35 @@
-.radar-chart-container {
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &_charts {
+        display: flex;
+        flex-direction: column;
+
+        &_line-radar-radial {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &_stat {
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+.bar-chart {
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #20253A;
+    padding: 10px 40px;
+    margin-bottom: 40px;
+}
+
+.radar-chart {
     background-color: black;
     border-radius: 5px;
     width: 260px;
@@ -8,7 +39,7 @@
     align-items: center;
 }
 
-.line-chart-container {
+.line-chart {
     background-color: #FF0101;
     border-radius: 5px;
     width: 260px;

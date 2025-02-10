@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function DisplayRadarChart({ data }) {
   return (
-    <div className="radar-chart-container">
+    <div className="radar-chart">
       <ResponsiveContainer width='100%' height={200}>
         <RadarChart data={data} >
           <PolarGrid stroke="#fff" radialLines={false} />

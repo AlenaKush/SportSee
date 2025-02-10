@@ -64,42 +64,51 @@ function Dashboard() {
 
   return (
     <div>
-      <h2>Bonjour {userName}</h2>
+      <h2 className="greeting">
+        Bonjour
+        <span className="greeting_name"> {userName}</span>
+      </h2>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-
-      <DisplayBarChart data={activityData} />
-      <DisplayLineChart data={sessionData} />
-      <DisplayRadialBarChart score={Number(score)} />
-      <DisplayRadarChart data={performanceData} />
-
-      <DisplayUserStat
-        id={id}
-        field="keyData.calorieCount"
-        unit="kcal"
-        label="Calories"
-        icon={caloriesIcon}
-      />
-      <DisplayUserStat
-        id={id}
-        field="keyData.proteinCount"
-        unit="g"
-        label="Proteines"
-        icon={proteinIcon}
-      />
-      <DisplayUserStat
-        id={id}
-        field="keyData.carbohydrateCount"
-        unit="g"
-        label="Glucides"
-        icon={carbsIcon}
-      />
-      <DisplayUserStat
-        id={id}
-        field="keyData.lipidCount"
-        unit="g"
-        label="Lipides"
-        icon={fatIcon}
-      />
+      <div className="container">
+        <div className="container_charts">
+          <DisplayBarChart data={activityData} />
+          <div className="container_charts_line-radar-radial">
+            <DisplayLineChart data={sessionData} />
+            <DisplayRadarChart data={performanceData} />
+            <DisplayRadialBarChart score={Number(score)} />
+          </div>
+        </div>
+        <div className="container_stat">
+          <DisplayUserStat
+            id={id}
+            field="keyData.calorieCount"
+            unit="kcal"
+            label="Calories"
+            icon={caloriesIcon}
+          />
+          <DisplayUserStat
+            id={id}
+            field="keyData.proteinCount"
+            unit="g"
+            label="Proteines"
+            icon={proteinIcon}
+          />
+          <DisplayUserStat
+            id={id}
+            field="keyData.carbohydrateCount"
+            unit="g"
+            label="Glucides"
+            icon={carbsIcon}
+          />
+          <DisplayUserStat
+            id={id}
+            field="keyData.lipidCount"
+            unit="g"
+            label="Lipides"
+            icon={fatIcon}
+          />
+        </div>
+      </div>
     </div>
   );
 }
