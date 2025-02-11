@@ -9,11 +9,14 @@ function DisplayRadialBarChart({ score }) {
 
   return (
     <div className="radial-bar-chart">
-      <h3 className="chart-title">Score</h3>
-      <ResponsiveContainer width={260} height={260}>
-        <RadialBarChart innerRadius="70%" outerRadius="90%" barSize={10} data={data} >
+      <h3 className="radial-bar-chart_title">Score</h3>
+      <ResponsiveContainer className='radial-bar-chart_box' width={260} height={260}>
+        <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="90%" barSize={10} data={data} >
+          <svg className="white-cecrle" width="100%" height="100%">
+            <circle cx="50%" cy="50%" r="90" fill="white" />
+          </svg>
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-          <RadialBar background dataKey="value" cornerRadius={50} />
+          <RadialBar dataKey="value" background={{ fill: "#fbfbfb" }} cornerRadius={50} />
         </RadialBarChart>
       </ResponsiveContainer>
       <div className="score-text">
@@ -24,7 +27,6 @@ function DisplayRadialBarChart({ score }) {
   );
 }
 
-// PropTypes validation
 DisplayRadialBarChart.propTypes = {
   score: PropTypes.number.isRequired,
 };
