@@ -82,7 +82,7 @@ function Dashboard() {
           <DisplayUserStat
             id={id}
             field="keyData.calorieCount"
-            unit="kcal"
+            unit="kCal"
             label="Calories"
             icon={caloriesIcon}
           />

@@ -20,7 +20,7 @@ function DisplayUserStat({id, field, unit, label, icon}) {
             <img src={icon} alt={`${label} icon`} className="stat-icon" />
             <div className="stat-text">
                 <p>{data}{unit}</p>
-                <p>{label}</p>
+                <span className="stat-text_label">{label}</span>
             </div>    
         </div>
     );

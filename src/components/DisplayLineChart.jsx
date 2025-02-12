@@ -1,7 +1,6 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle } from "recharts";
 import PropTypes from "prop-types";
 
-// Кастомный Tooltip, который отображает только количество минут
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
     return (
@@ -25,6 +24,25 @@ CustomTooltip.propTypes = {
   payload: PropTypes.array,
 };
 
+function CustomCursor({ points }) {
+  const { x } = points[0];
+  return (
+    <Rectangle
+      fill="rgba(0, 0, 0, 0.1)"
+      x={x}
+      y={0}
+      width={260}
+      height={260}
+    />
+  );
+}
+
+CustomCursor.propTypes = {
+  points: PropTypes.array,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
+
 function DisplayLineChart({ data }) {
   return (
     <div className="line-chart">
@@ -40,7 +58,7 @@ function DisplayLineChart({ data }) {
             tick={{ fill: "rgba(255, 255, 255, 0.5)", fontSize: 12 }} 
           />
           <YAxis hide domain={["dataMin", "dataMax"]} />
-          <Tooltip content={<CustomTooltip />} cursor={false}/>
+          <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />}/>
           <Line 
             type="monotone" 
             dataKey="sessionLength" 

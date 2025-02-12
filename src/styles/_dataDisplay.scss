@@ -3,9 +3,35 @@
     width: 258px;
     height: 124px;
     display: flex;
+    border-radius: 5px;
 }
 
+.stat-icon {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 .stat-text {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #282D30;
+
+    p {
+        margin: 0;
+    }
+
+    &_label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #74798C;
+    }
+}
+
+.container_stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
