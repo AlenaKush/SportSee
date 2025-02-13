@@ -35,3 +35,23 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+@media (max-width: 1270px) {
+    .stat-unit {
+        
+        width: 180px;
+        height: 87px;
+       
+    }
+
+    .stat-icon {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .stat-text {
+
+        font-size: 18px;
+    }
+}

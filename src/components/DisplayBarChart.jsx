@@ -30,7 +30,7 @@ function DisplayBarChart({ data }) {
         />
       </div>
 
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height="80%">
         <BarChart data={data} >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" stroke="#9B9EAC" tickLine={false} />

@@ -47,7 +47,7 @@ function DisplayLineChart({ data }) {
   return (
     <div className="line-chart">
       <h3 className="line-chart_title">Durée moyenne des sessions</h3>
-      <ResponsiveContainer width="100%" height={190}>
+      <ResponsiveContainer width="100%" height="70%">
         <LineChart data={data}>
           <XAxis 
             dataKey="day" 
