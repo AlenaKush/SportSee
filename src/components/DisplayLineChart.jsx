@@ -24,15 +24,15 @@ CustomTooltip.propTypes = {
   payload: PropTypes.array,
 };
 
-function CustomCursor({ points }) {
-  const { x } = points[0];
+function CustomCursor({ points, width, height }) {
+  const { x, y } = points[0];
   return (
     <Rectangle
       fill="rgba(0, 0, 0, 0.1)"
       x={x}
-      y={0}
-      width={260}
-      height={260}
+      y={y}
+      width={width}
+      height={height}
     />
   );
 }
