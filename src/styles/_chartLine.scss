@@ -1,0 +1,20 @@
+.line-chart {
+  background-color: #ff0101;
+  border-radius: 5px;
+  width: 260px;
+  height: 260px;
+  color: #ffffff;
+
+  &_title {
+    font-size: 15px;
+    margin: 20px 25px 0 25px;
+    opacity: 50%;
+  }
+}
+
+@media (max-width: 1270px) {
+  .line-chart {
+    width: 245px;
+    height: 245px;
+  }
+}

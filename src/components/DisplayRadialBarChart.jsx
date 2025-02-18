@@ -11,7 +11,7 @@ function DisplayRadialBarChart({ score }) {
     <div className="radial-bar-chart">
       <h3 className="radial-bar-chart_title">Score</h3>
       <ResponsiveContainer className='radial-bar-chart_box' width="100%" height="100%">
-        <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="90%" barSize={10} data={data} >
+        <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="90%" barSize={10} data={data} startAngle={90} endAngle={450} >
           <svg className="white-cecrle" width="100%" height="100%">
             <circle cx="50%" cy="50%" r="32%" fill="white" />
           </svg>

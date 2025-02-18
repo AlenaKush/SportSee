@@ -1,0 +1,33 @@
+.bar-chart {
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #20253a;
+  padding: 10px 40px;
+  margin-bottom: 40px;
+  height: 320px;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    position: relative;
+    margin: 20px 0;
+
+    &_title {
+      margin: 0;
+    }
+  }
+}
+
+.recharts-legend-item-text {
+  color: #74798c !important;
+}
+
+
+@media (max-width: 1270px) {
+    .bar-chart {
+      height: 280px;
+    }
+}

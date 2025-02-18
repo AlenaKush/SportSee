@@ -1,0 +1,16 @@
+.radar-chart {
+  background-color: black;
+  border-radius: 5px;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1270px) {
+  .radar-chart {
+    width: 245px;
+    height: 245px;
+  }
+}

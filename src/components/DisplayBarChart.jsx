@@ -1,25 +1,17 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from "recharts";
 import PropTypes from "prop-types";
-
-
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p className="tooltip-text">{payload[0].value} kg</p>
-        <p className="tooltip-text">{payload[1].value} Kcal</p>
-      </div>
-    );
-  }
-  return null;
-};
+import CustomTooltip from "../utils/CastomTooltip.jsx";
 
 function DisplayBarChart({ data }) {
+  
+  const minWeight = Math.min( ...data.map(session => session.kilogram)) - 1;
+  const maxWeight = Math.max( ...data.map(session => session.kilogram)) + 2;
+
   return (
     <div className="bar-chart">
-      <div className="chart-header">
-        <h3 className="chart-title">Activité quotidienne</h3>
-        <Legend className="custom-legend"
+      <div className="bar-chart_header">
+        <h3 className="bar-chart_header_title">Activité quotidienne</h3>
+        <Legend className="bar-chart_custom-legend"
           verticalAlign="top"
           align="right"
           iconSize={8}
@@ -34,10 +26,9 @@ function DisplayBarChart({ data }) {
         <BarChart data={data} >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" stroke="#9B9EAC" tickLine={false} />
-          <YAxis yAxisId="kg" orientation="right" stroke="#9B9EAC" tickLine={false} axisLine={false} tick={{ fill: "#9B9EAC" }} />
+          <YAxis yAxisId="kg" domain={[minWeight, maxWeight]} orientation="right" stroke="#9B9EAC" tickLine={false} axisLine={false} tick={{ fill: "#9B9EAC" }} />
           <YAxis yAxisId="cal" orientation="left" stroke="#9B9EAC" tickLine={false} hide />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(196, 196, 196, 0.5)" }} />
-          
+          <Tooltip content={<CustomTooltip unit="Kcal" type="bar-chart-tooltip" />} cursor={{ fill: "rgba(196, 196, 196, 0.5)" }} />
           <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[3, 3, 0, 0]} />
           <Bar yAxisId="cal" dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
         </BarChart>
@@ -46,17 +37,9 @@ function DisplayBarChart({ data }) {
   );
 }
 
-
-
 DisplayBarChart.propTypes = {
   data: PropTypes.array.isRequired,
 
-};
-
-
-CustomTooltip.propTypes = {
-  active: PropTypes.bool, 
-  payload: PropTypes.array, 
 };
 
 export default DisplayBarChart;

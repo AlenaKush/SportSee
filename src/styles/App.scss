@@ -2,6 +2,11 @@
 @import 'sidebar';
 @import 'dataDisplay';
 @import 'charts';
+@import 'customTooltip';
+@import 'chartBar';
+@import 'chartLine';
+@import 'chartRadar';
+@import 'chartRadial';
 
 :root {
   font-family: Roboto, sans-serif;
@@ -24,7 +29,7 @@ body {
 
 main {
   padding: 50px 0;
-  margin: 10px 12vw;
+  margin: 40px 12vw;
 }
 
 .greeting {
