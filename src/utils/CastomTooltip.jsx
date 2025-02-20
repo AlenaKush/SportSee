@@ -1,23 +1,17 @@
 import PropTypes from "prop-types";
 import "../styles/App.scss";
 
-const CustomTooltip = ({ active, payload, unit = "", type = "default" }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className={`${type}`}>
-        {payload.map((item, index) => (
-          <p key={index} className="tooltip-text">
-            {item.value} {unit}
-          </p>
-        ))}
-      </div>
-    );
-  }
-  return null;
-};
+const CustomTooltip = ({ payload = [], unit = "", type = "default" }) => (
+  <div className={type}>
+    {payload.map(({ value }, index) => (
+      <p key={index} className="tooltip-text">
+        {value} {unit}
+      </p>
+    ))}
+  </div>
+);
 
 CustomTooltip.propTypes = {
-  active: PropTypes.bool,
   payload: PropTypes.array,
   unit: PropTypes.string,
   type: PropTypes.string,
