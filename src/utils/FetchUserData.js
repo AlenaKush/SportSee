@@ -1,6 +1,6 @@
 import { getUserData } from "../api/api";
 
-const FetchUserData = async (id, field) => {
+const FetchUserData = async (id, field = "id") => {
   const response = await getUserData(id);
 
   if (response.data) {
