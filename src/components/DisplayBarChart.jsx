@@ -28,7 +28,7 @@ function DisplayBarChart({ data }) {
           <XAxis dataKey="day" stroke="#9B9EAC" tickLine={false} />
           <YAxis yAxisId="kg" domain={[minWeight, maxWeight]} orientation="right" stroke="#9B9EAC" tickLine={false} axisLine={false} tick={{ fill: "#9B9EAC" }} />
           <YAxis yAxisId="cal" orientation="left" stroke="#9B9EAC" tickLine={false} hide />
-          <Tooltip content={<CustomTooltip unit="Kcal" type="bar-chart-tooltip" />} cursor={{ fill: "rgba(196, 196, 196, 0.5)" }} />
+          <Tooltip content={<CustomTooltip type="bar-chart-tooltip" />} cursor={{ fill: "rgba(196, 196, 196, 0.5)" }} />
           <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[3, 3, 0, 0]} />
           <Bar yAxisId="cal" dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
         </BarChart>

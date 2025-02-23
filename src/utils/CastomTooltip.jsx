@@ -1,15 +1,23 @@
 import PropTypes from "prop-types";
 import "../styles/App.scss";
 
-const CustomTooltip = ({ payload = [], unit = "", type = "default" }) => (
-  <div className={type}>
-    {payload.map(({ value }, index) => (
-      <p key={index} className="tooltip-text">
-        {value} {unit}
-      </p>
-    ))}
-  </div>
-);
+const CustomTooltip = ({ payload = [], unit = "", type = "default" }) => {
+  if (!payload.length) return null;
+
+  return (
+    <div className={type}>
+      {payload.map((entry, index) => {
+        const displayUnit = unit || (entry.dataKey === "kilogram" ? "kg" : "Kcal");
+
+        return (
+          <p key={index} className="tooltip-text">
+            {entry.value} {displayUnit}
+          </p>
+        );
+      })}
+    </div>
+  );
+};
 
 CustomTooltip.propTypes = {
   payload: PropTypes.array,
